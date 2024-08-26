@@ -1,0 +1,305 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+header {
+  height: 60px;
+  width: 100%;
+  background-color: #39A136;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  padding: 3%; 
+  margin: 0; 
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  display: block; 
+}
+
+/* Media queries para ajustar el diseño en dispositivos móviles */
+@media (max-width: 768px) {
+  header {
+    padding: 10px; /* Ajusta el padding para pantallas más pequeñas si es necesario */
+  }
+
+  header img {
+    width: 100px; /* Ajusta el tamaño de la imagen para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 8px; /* Ajusta el padding para pantallas aún más pequeñas si es necesario */
+  }
+
+  header img {
+    width: 80px; /* Ajusta el tamaño de la imagen para pantallas pequeñas */
+  }
+}
+
+main {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto; 
+  position: relative; /* Asegura que el botón se posicione en relación con el contenedor main */
+  padding-top: 50px; 
+}
+
+.bar {
+  background-color: white; /* Color de las barras */
+  height: 10px; /* Altura de las barras */
+  width: 60px; /* Ancho de las barras */
+  margin: 2px 0; /* Espacio entre las barras */
+  border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
+}
+
+/* Asegúrate de que el dropdown esté posicionado correctamente */
+.dropdown {
+  position: fixed; /* Cambiado a fixed para posicionar el menú en relación con la ventana */
+  top: 5px; /* Ajusta la distancia desde la parte superior de la ventana */
+  right: 5px; /* Ajusta la distancia desde el borde derecho de la ventana */
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: #39A136; /* Color de fondo del botón */
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px; /* Opcional: para esquinas redondeadas */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para las barras del botón de menú */
+.bar {
+  background-color: white; /* Color de las barras */
+  height: 10px; /* Altura de las barras */
+  width: 60px; /* Ancho de las barras */
+  margin: 2px 0; /* Espacio entre las barras */
+  border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
+}
+
+/* Menú desplegable */
+.dropdown-content {
+  display: none; /* Oculta el menú por defecto */
+  position: absolute;
+  top: 100%; /* Posiciona el menú debajo del botón */
+  right: 0; /* Alinea el menú con el borde derecho del botón */
+  background-color: cadetblue;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 200px; /* Ancho del menú desplegable */
+  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho */
+}
+
+/* Enlaces dentro del dropdown */
+.dropdown-content a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd; /* Línea entre los elementos */
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none; /* Quitar la línea en el último elemento */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; /* Fondo del enlace al pasar el ratón */
+}
+
+/* Mostrar el dropdown al pasar el ratón */
+.dropdown:hover .dropdown-content {
+  display: block; /* Muestra el menú al pasar el ratón sobre el contenedor */
+}
+
+
+
+.dropdown:hover .dropdown-button {
+  background-color: #2f7a24; /* Cambia el color del botón al pasar el ratón sobre el contenedor */
+}
+
+
+/* Ajuste del formulario dentro del dropdown-content */
+.todo-form {
+  display: flex; /* Utiliza flexbox para alinear los elementos en línea */
+  align-items: center; /* Alinea verticalmente los elementos al centro */
+  padding: 10px; /* Espacio interno alrededor del formulario */
+  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho */
+}
+
+/* Campo de texto en el formulario */
+#todo-input {
+  flex: 1; /* Hace que el input ocupe el espacio disponible */
+  padding: 8px; /* Agrega espacio interno al input */
+  border: 1px solid #ddd; /* Añade un borde al input */
+  border-radius: 4px; /* Esquinas redondeadas para el input */
+  margin-right: 8px; /* Espacio entre el input y el botón */
+}
+
+
+.edit-button:hover {
+  background: #2f7a24;
+}
+
+.edit-input {
+  display: none;
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ---- BOARD ---- */
+.lanes {
+  display: flex;
+  flex-direction: row; /* Asegura que las casillas se alineen horizontalmente */
+  align-items: flex-start;
+  justify-content: flex-start; /* Alinea las casillas a la izquierda */
+  gap: 16px;
+  padding: 24px 0; /* Ajusta el padding para alinear a la izquierda */
+  overflow: auto; /* Permite el scroll si el contenido es más grande que la ventana */
+  flex: 1; /* Asegura que el contenedor de las casillas ocupe el espacio restante */
+  position: absolute; /* Posiciona los swim-lanes de forma absoluta dentro del main */
+  top: 50px; /* Espacio desde el borde superior del main, para que queden debajo del botón */
+  left: 10px; /* Espacio desde el borde izquierdo del main */
+  display: flex; /* Usa flexbox para alinear los swim-lanes horizontalmente */
+  gap: 20px; /* Espacio entre los swim-lanes */
+}
+
+#add-swim-lane-btn {
+  position: absolute; /* Posiciona el botón de forma absoluta dentro del main */
+  top: 10px; /* Espacio desde el borde superior del main */
+  left: 10px; /* Espacio desde el borde izquierdo del main */
+  z-index: 1000; /* Asegura que el botón esté encima de otros elementos dentro del main */
+  padding: 10px 20px; /* Ajusta el espacio interno del botón */
+  background-color: coral; /* Ajusta el color de fondo del botón */
+  color: white; /* Ajusta el color del texto del botón */
+  border: none; /* Elimina el borde del botón */
+  border-radius: 5px; /* Redondea las esquinas del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+#add-swim-lane-btn:hover {
+  background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.swim-lane {
+  padding: 20px;
+  background-color: #f8f9fa; /* Ajusta el color de fondo de los swim-lanes */
+  border: 1px solid #ddd; /* Añade un borde a los swim-lanes */
+  border-radius: 5px; /* Redondea las esquinas de los swim-lanes */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil para mejorar el diseño */
+}
+
+.swim-lane h3 {
+  margin: 0;
+}
+
+
+.swim-lane1 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgb(197, 197, 44);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  border-radius: 10px;
+  width: 225px;
+  min-height: 120px;
+  flex-shrink: 0;
+}
+
+.swim-lane2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgb(241, 185, 80);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  border-radius: 10px;
+  width: 225px;
+  min-height: 120px;
+  flex-shrink: 0;
+}
+
+.swim-lane3 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgb(94, 185, 94);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  border-radius: 10px;
+  width: 225px;
+  min-height: 120px;
+  flex-shrink: 0;
+}
+
+.task {
+  background: white;
+  color: black;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: move;
+}
+
+footer {
+  width: 100%;
+  color: white;
+  background-color: #39A136;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.footer-imageceet {
+  max-width: 300px;
+  height: auto;
+  margin: 10px;
+}
+
+.footer-imagesennova {
+  max-width: 200px;
+  height: auto;
+  margin-left: 10px;
+}
