@@ -22,6 +22,14 @@ header {
   align-items: center; 
   justify-content: center;
 }
+.header-sign {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff; /* Color del texto del letrero */
+  font-size: 1.5rem; /* Tamaño de fuente del letrero */
+  font-weight: bold; /* Peso de la fuente del letrero */
+}
 
 header img {
   max-width: 100%;
@@ -62,11 +70,13 @@ main {
   padding-top: 50px; 
 }
 
+
+
 .bar {
-  background-color: white; /* Color de las barras */
-  height: 10px; /* Altura de las barras */
-  width: 60px; /* Ancho de las barras */
-  margin: 2px 0; /* Espacio entre las barras */
+  background-color: white; 
+  height: 10px; 
+  width: 60px; 
+  margin: 2px 0;
   border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
 }
 
@@ -79,54 +89,25 @@ main {
 }
 
 .dropdown-button {
-  background-color: #39A136; /* Color de fondo del botón */
+  background-color: #39A136; 
   border: none;
   cursor: pointer;
   padding: 10px;
-  border-radius: 4px; /* Opcional: para esquinas redondeadas */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  border-radius: 4px; /
 
-/* Estilos para las barras del botón de menú */
-.bar {
-  background-color: white; /* Color de las barras */
-  height: 10px; /* Altura de las barras */
-  width: 60px; /* Ancho de las barras */
-  margin: 2px 0; /* Espacio entre las barras */
-  border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
 }
 
 /* Menú desplegable */
 .dropdown-content {
-  display: none; /* Oculta el menú por defecto */
+  display: none; 
   position: absolute;
-  top: 100%; /* Posiciona el menú debajo del botón */
-  right: 0; /* Alinea el menú con el borde derecho del botón */
+  top: 100%; 
+  right: 0; 
   background-color: cadetblue;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1;
   width: 200px; /* Ancho del menú desplegable */
   box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho */
-}
-
-/* Enlaces dentro del dropdown */
-.dropdown-content a {
-  display: block;
-  color: black;
-  padding: 10px;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd; /* Línea entre los elementos */
-}
-
-.dropdown-content a:last-child {
-  border-bottom: none; /* Quitar la línea en el último elemento */
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1; /* Fondo del enlace al pasar el ratón */
 }
 
 /* Mostrar el dropdown al pasar el ratón */
@@ -135,40 +116,12 @@ main {
 }
 
 
-
-.dropdown:hover .dropdown-button {
-  background-color: #2f7a24; /* Cambia el color del botón al pasar el ratón sobre el contenedor */
-}
-
-
 /* Ajuste del formulario dentro del dropdown-content */
 .todo-form {
-  display: flex; /* Utiliza flexbox para alinear los elementos en línea */
-  align-items: center; /* Alinea verticalmente los elementos al centro */
-  padding: 10px; /* Espacio interno alrededor del formulario */
-  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho */
-}
-
-/* Campo de texto en el formulario */
-#todo-input {
-  flex: 1; /* Hace que el input ocupe el espacio disponible */
-  padding: 8px; /* Agrega espacio interno al input */
-  border: 1px solid #ddd; /* Añade un borde al input */
-  border-radius: 4px; /* Esquinas redondeadas para el input */
-  margin-right: 8px; /* Espacio entre el input y el botón */
-}
-
-
-.edit-button:hover {
-  background: #2f7a24;
-}
-
-.edit-input {
-  display: none;
-  margin-left: 10px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  display: flex;
+  align-items: center; 
+  padding: 10px; 
+  box-sizing: border-box; 
 }
 
 /* ---- BOARD ---- */
@@ -188,16 +141,48 @@ main {
   gap: 20px; /* Espacio entre los swim-lanes */
 }
 
+.swim-lane {
+  position: relative; /* Habilita el posicionamiento absoluto dentro del swim-lane */
+  border: 1px solid #ddd;
+  padding: 20px; /* Ajusta el padding según tus necesidades */
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 225px; /* Ajusta el ancho según tus necesidades */
+  min-height: 120px; /* Ajusta la altura mínima según tus necesidades */
+  flex-shrink: 0;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.remove-swim-lane-btn {
+  position: absolute; /* Posiciona el botón de forma absoluta dentro del swim-lane */
+  top: 10px; /* Espacio desde el borde superior del swim-lane */
+  right: 10px; /* Espacio desde el borde derecho del swim-lane */
+  background-color: #ddd;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+}
+
 #add-swim-lane-btn {
-  position: absolute; /* Posiciona el botón de forma absoluta dentro del main */
-  top: 10px; /* Espacio desde el borde superior del main */
-  left: 10px; /* Espacio desde el borde izquierdo del main */
-  z-index: 1000; /* Asegura que el botón esté encima de otros elementos dentro del main */
-  padding: 10px 20px; /* Ajusta el espacio interno del botón */
-  background-color: coral; /* Ajusta el color de fondo del botón */
-  color: white; /* Ajusta el color del texto del botón */
-  border: none; /* Elimina el borde del botón */
-  border-radius: 5px; /* Redondea las esquinas del botón */
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  z-index: 1000; 
+  padding: 10px 20px; 
+  background-color: coral; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
@@ -206,56 +191,24 @@ main {
 }
 
 .swim-lane {
-  padding: 20px;
-  background-color: #f8f9fa; /* Ajusta el color de fondo de los swim-lanes */
-  border: 1px solid #ddd; /* Añade un borde a los swim-lanes */
-  border-radius: 5px; /* Redondea las esquinas de los swim-lanes */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil para mejorar el diseño */
-}
-
-.swim-lane h3 {
-  margin: 0;
-}
-
-
-.swim-lane1 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: rgb(197, 197, 44);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
   padding: 50px;
   border-radius: 10px;
   width: 225px;
   min-height: 120px;
   flex-shrink: 0;
+  transition: background-color 0.3s ease; /* Para una transición suave del color */
 }
 
-.swim-lane2 {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: rgb(241, 185, 80);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-  border-radius: 10px;
-  width: 225px;
-  min-height: 120px;
-  flex-shrink: 0;
-}
+.color-1 { background-color: rgb(223, 220, 67); } /* Color 1 */
+.color-2 { background-color: rgb(180, 220, 100); } /* Color 2 */
+.color-3 { background-color: rgb(233, 135, 70); } /* Color 3 */
+.color-4 { background-color: rgb(165, 240, 184); } /* Color 4 */
+.color-5 { background-color: rgb(183, 196, 66); } /* Color 5 */
 
-.swim-lane3 {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: rgb(94, 185, 94);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-  border-radius: 10px;
-  width: 225px;
-  min-height: 120px;
-  flex-shrink: 0;
-}
 
 .task {
   background: white;

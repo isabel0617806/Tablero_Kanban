@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css" />
-  <title>Tablero Kamba</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <title>Tablero Kanban</title>
+  
 </head>
 <body>
   <header>
-    <img src="imagenes/LogoBlanco.png" alt="Logo Sennova" class="footer-imagesennova"> 
-
+    <img src="imagenes/LogoBlanco.png" alt="Logo Sennova" class="footer-imagesennova">
+    <div class="header-sign">Tablero Kanban</div> 
     <nav class="dropdown">
       <button class="dropdown-button">
         <div class="bar"></div>
@@ -19,43 +21,19 @@
       <div class="dropdown-content">
         <form class="todo-form">
           <input type="text" placeholder="Agregar Nueva Tarea" id="todo-input" />
-          
         </form>
+        <button id="create-new-board">Nuevo Tablero</button>
       </div>
     </nav>
     <div class="footer-content"></div>
-    
   </header>
-<main>
-  <div id="lanes-container" class="lanes">
-    <!-- Aquí se agregarán los nuevos swim-lanes -->
-  </div>
-  <button id="add-swim-lane-btn">Agregar Nueva Tarjeta</button>
-  <script>
-    function addNewSwimLane() {
-        const newSwimLane = document.createElement('div');
-        newSwimLane.className = 'swim-lane swim-lane2';
-        newSwimLane.innerHTML = '<h3 class="heading">En ejecución</h3>';
-        document.getElementById('lanes-container').appendChild(newSwimLane);
-    }
   
-    document.getElementById('add-swim-lane-btn').addEventListener('click', addNewSwimLane);
-  </script>
-      </form>
-            
-      <div class="lanes">
-        <div class="swim-lane swim-lane1">
-          <h3 class="heading">por hacer</h3>
-        </div>
-        <div class="swim-lane swim-lane2">
-          <h3 class="heading">en proceso</h3>
-        </div>
-        <div class="swim-lane swim-lane3">
-          <h3 class="heading">termia</h3>
-        </div>
-      </div>
+  <main>
+    <div id="lanes-container" class="lanes">
+      <!-- Más swim-lanes pueden estar aquí -->
     </div>
-  </main> 
+    <button id="add-swim-lane-btn">Agregar Nueva Tarjeta</button>
+    </main> 
   <footer>
     <img src="imagenes/LogoCEET.png" alt="Logo CEET" class="footer-imageceet"> 
     <div class="footer-content">            
@@ -65,13 +43,7 @@
     </div>
     <img src="imagenes/Logosennova.svg" alt="Logo Sennova" class="footer-imagesennova"> 
   </footer>
-
   <script src="javascript/drag.js"></script>
-  <script src="javascript/todo.js"></script>
+
 </body>
 </html>
-
-
-
-
-
