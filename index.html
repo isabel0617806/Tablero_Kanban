@@ -6,12 +6,11 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <title>Tablero Kanban</title>
-  
 </head>
 <body>
   <header>
     <img src="imagenes/LogoBlanco.png" alt="Logo Sennova" class="footer-imagesennova">
-    <div class="header-sign">Tablero Kanban</div> 
+    <div class="header-sign" id="editable-title" contenteditable="true">Tablero Kanban</div> 
     <nav class="dropdown">
       <button class="dropdown-button">
         <div class="bar"></div>
@@ -19,21 +18,28 @@
         <div class="bar"></div>
       </button>
       <div class="dropdown-content">
-        <form class="todo-form">
-          <input type="text" placeholder="Agregar Nueva Tarea" id="todo-input" />
-        </form>
-        <button id="create-new-board">Nuevo Tablero</button>
+        <nav>
+          <h2>Menú</h2> <!-- Título del menú -->          
+          <ul class="menu-vertical">
+            <li><button id="add-board-btn">Agregar nueva página</button></li>
+            <li><button id="delete-board-btn">Eliminar tablero</button></li>
+            <li><button id="save-board-btn">Guardar tablero</button></li>
+          </ul>
+        </nav>
       </div>
     </nav>
     <div class="footer-content"></div>
   </header>
+  
   
   <main>
     <div id="lanes-container" class="lanes">
       <!-- Más swim-lanes pueden estar aquí -->
     </div>
     <button id="add-swim-lane-btn">Agregar Nueva Tarjeta</button>
-    </main> 
+    <form class="todo-form"></form>
+  </main> 
+  
   <footer>
     <img src="imagenes/LogoCEET.png" alt="Logo CEET" class="footer-imageceet"> 
     <div class="footer-content">            
@@ -44,6 +50,6 @@
     <img src="imagenes/Logosennova.svg" alt="Logo Sennova" class="footer-imagesennova"> 
   </footer>
   <script src="javascript/drag.js"></script>
-
+  <script src="scripts.js"></script>
 </body>
 </html>

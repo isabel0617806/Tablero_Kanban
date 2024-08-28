@@ -21,6 +21,7 @@ header {
   display: flex;
   align-items: center; 
   justify-content: center;
+  
 }
 .header-sign {
   position: absolute;
@@ -80,41 +81,47 @@ main {
   border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
 }
 
-/* Asegúrate de que el dropdown esté posicionado correctamente */
+
 .dropdown {
-  position: fixed; /* Cambiado a fixed para posicionar el menú en relación con la ventana */
-  top: 5px; /* Ajusta la distancia desde la parte superior de la ventana */
-  right: 5px; /* Ajusta la distancia desde el borde derecho de la ventana */
+  position: fixed; /* Fija el menú desplegable en la ventana */
+  top: 5px;
+  right: 5px;
   display: inline-block;
+  z-index: 1500; /* Asegura que esté sobre otros elementos */
 }
 
 .dropdown-button {
-  background-color: #39A136; 
+  background-color: #39A136; /* Color de fondo */
   border: none;
+  color: white; /* Color del texto */
   cursor: pointer;
-  padding: 10px;
-  border-radius: 4px; /
-
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
 }
 
-/* Menú desplegable */
+
 .dropdown-content {
-  display: none; 
+  display: none;
   position: absolute;
-  top: 100%; 
-  right: 0; 
-  background-color: cadetblue;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-  width: 200px; /* Ancho del menú desplegable */
-  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho */
+  top: 100%;
+  right: 0;
+  background-color: rgb(186, 245, 186); /* Color de fondo del dropdown */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Sombra para profundidad */
+  z-index: 1500; /* Asegura que el menú esté encima */
+  width: 300px; /* Ancho ajustado */
+  border-radius: 5px; /* Esquinas redondeadas */
+  box-sizing: border-box;
+  padding: 10px 0; /* Espaciado interno */
 }
 
-/* Mostrar el dropdown al pasar el ratón */
+
+
 .dropdown:hover .dropdown-content {
-  display: block; /* Muestra el menú al pasar el ratón sobre el contenedor */
+  display: block;
 }
-
 
 /* Ajuste del formulario dentro del dropdown-content */
 .todo-form {
@@ -139,6 +146,15 @@ main {
   left: 10px; /* Espacio desde el borde izquierdo del main */
   display: flex; /* Usa flexbox para alinear los swim-lanes horizontalmente */
   gap: 20px; /* Espacio entre los swim-lanes */
+}
+#lanes-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Crea una cuadrícula de 5 columnas */
+  gap: 16px; /* Espacio entre los swim-lanes */
+  width: 100%;
+  max-width: 100%; /* Asegura que el contenedor no exceda el ancho del viewport */
+  box-sizing: border-box;
+  margin: 0 auto; /* Centra la cuadrícula */
 }
 
 .swim-lane {
@@ -179,7 +195,7 @@ main {
   left: 10px; 
   z-index: 1000; 
   padding: 10px 20px; 
-  background-color: coral; 
+  background-color: #39A136; 
   color: white; 
   border: none; 
   border-radius: 5px; 
@@ -187,7 +203,7 @@ main {
 }
 
 #add-swim-lane-btn:hover {
-  background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+  background-color: #687068 ; /* Cambia el color de fondo al pasar el ratón */
 }
 
 .swim-lane {
@@ -256,3 +272,37 @@ footer {
   height: auto;
   margin-left: 10px;
 }
+
+nav {
+  text-align: center; /* Asegúrate de que el contenedor también esté centrado */
+}
+/* Estilo de los elementos del menú vertical */
+.menu-vertical {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-vertical li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-vertical a {
+  text-decoration: none; /* Opcional: quita el subrayado de los enlaces */
+  color: #000; /* Opcional: establece el color del texto */
+}
+
+.menu-vertical li {
+  margin: 10px 0; /* Espaciado entre los elementos de la lista */
+}
+
+.menu-vertical li a:hover {
+  background-color: rgb(80, 161, 80);
+  color: black;
+}
+.menu-title {
+  text-align: center; /* Centra el texto del título */
+  margin: 0; /* Elimina el margen por defecto para una mejor alineación */
+  
+  }
