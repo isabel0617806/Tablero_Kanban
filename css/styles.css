@@ -77,11 +77,12 @@ main {
   background-color: white; 
   height: 10px; 
   width: 60px; 
-  margin: 2px 0;
+  margin: 4px 0;
   border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
 }
 
 
+/* Estilo del menú desplegable */
 .dropdown {
   position: fixed; /* Fija el menú desplegable en la ventana */
   top: 5px;
@@ -99,29 +100,58 @@ main {
   border-radius: 5px; /* Esquinas redondeadas */
   font-size: 16px; /* Tamaño de fuente */
   font-weight: bold; /* Negrita */
-  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  transition: background-color 0.3s, transform 0.3s; 
+  width: auto; 
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
-
 
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: rgb(186, 245, 186); /* Color de fondo del dropdown */
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Sombra para profundidad */
-  z-index: 1500; /* Asegura que el menú esté encima */
-  width: 300px; /* Ancho ajustado */
-  border-radius: 5px; /* Esquinas redondeadas */
+  top: 100%; 
+  right: 0; 
+  background-color: white; 
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+  z-index: 1500; 
+  width: 300px; 
+  border-radius: 20px; 
+  border: 5px solid #39A136; 
   box-sizing: border-box;
-  padding: 10px 0; /* Espaciado interno */
+  padding: 10px 0;
 }
-
-
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* Estilo para los botones dentro del dropdown */
+.dropdown-content button {
+  background-color: #39A136; 
+  border: none;
+  color: white; 
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px; 
+  font-size: 16px; 
+  font-weight: bold; 
+  margin: 10px 0; 
+  transition: background-color 0.3s, box-shadow 0.3s; 
+  width: calc(100% - 20px); 
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3); 
+}
+
+.dropdown-content button:hover {
+  background-color: #2d8f2d; 
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.4); 
+}
+
+
+#read-content-btn {
+  display: none;
+}
+
 
 /* Ajuste del formulario dentro del dropdown-content */
 .todo-form {
@@ -134,19 +164,20 @@ main {
 /* ---- BOARD ---- */
 .lanes {
   display: flex;
-  flex-direction: row; /* Asegura que las casillas se alineen horizontalmente */
+  flex-direction: row; 
   align-items: flex-start;
-  justify-content: flex-start; /* Alinea las casillas a la izquierda */
+  justify-content: flex-start; 
   gap: 16px;
-  padding: 24px 0; /* Ajusta el padding para alinear a la izquierda */
-  overflow: auto; /* Permite el scroll si el contenido es más grande que la ventana */
-  flex: 1; /* Asegura que el contenedor de las casillas ocupe el espacio restante */
-  position: absolute; /* Posiciona los swim-lanes de forma absoluta dentro del main */
-  top: 50px; /* Espacio desde el borde superior del main, para que queden debajo del botón */
-  left: 10px; /* Espacio desde el borde izquierdo del main */
-  display: flex; /* Usa flexbox para alinear los swim-lanes horizontalmente */
-  gap: 20px; /* Espacio entre los swim-lanes */
+  padding: 24px 0; 
+  overflow: auto; 
+  flex: 1; 
+  position: absolute; 
+  top: 50px; 
+  left: 10px; 
+  display: flex; 
+  gap: 20px; 
 }
+
 #lanes-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Crea una cuadrícula de 5 columnas */
@@ -219,11 +250,11 @@ main {
   transition: background-color 0.3s ease; /* Para una transición suave del color */
 }
 
-.color-1 { background-color: rgb(223, 220, 67); } /* Color 1 */
-.color-2 { background-color: rgb(180, 220, 100); } /* Color 2 */
-.color-3 { background-color: rgb(233, 135, 70); } /* Color 3 */
-.color-4 { background-color: rgb(165, 240, 184); } /* Color 4 */
-.color-5 { background-color: rgb(183, 196, 66); } /* Color 5 */
+.color-1 { background-color: rgb(223, 220, 67); } 
+.color-2 { background-color: rgb(180, 220, 100); } 
+.color-3 { background-color: rgb(233, 135, 70); } 
+.color-4 { background-color: rgb(165, 240, 184); } 
+.color-5 { background-color: rgb(183, 196, 66); } 
 
 
 .task {
@@ -281,6 +312,7 @@ nav {
   list-style-type: none;
   padding: 0;
   margin: 0;
+
 }
 
 .menu-vertical li {
@@ -294,7 +326,7 @@ nav {
 }
 
 .menu-vertical li {
-  margin: 10px 0; /* Espaciado entre los elementos de la lista */
+  margin: 12px 0; /* Espaciado entre los elementos de la lista */
 }
 
 .menu-vertical li a:hover {
