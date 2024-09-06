@@ -68,11 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Añadir eventos específicos para los botones
     document.getElementById('add-board-btn').addEventListener('mouseover', function() {
-        if (isSpeechEnabled) speakText('Agregar nueva página');
-    });
-
-    document.getElementById('save-board-btn').addEventListener('mouseover', function() {
-        if (isSpeechEnabled) speakText('Guardar tablero');
+        if (isSpeechEnabled) speakText('Agregar nuevo tablero');
     });
 
     document.getElementById('toggle-speech-btn').addEventListener('mouseover', function() {
@@ -96,16 +92,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Añadir evento para el botón de activar/desactivar voz
     document.getElementById('toggle-speech-btn').addEventListener('click', toggleSpeech);
 
-    // Función para agregar una nueva página
-    function addBoard() {
-        // Limpiar el contenido del tablero
-        const boardContainer = document.getElementById('lanes-container');
-        if (boardContainer) {
-            boardContainer.innerHTML = ''; // Limpiar el contenido del contenedor del tablero
+    // Función para solicitar el nombre del tablero y agregarlo
+    async function addNewBoard() {
+        // Solicitar el nombre del tablero al usuario
+        const boardName = prompt('Ingrese el nombre del nuevo tablero:');
+
+        if (boardName) {
+            // Limpiar el contenido del tablero
+            const boardContainer = document.getElementById('lanes-container');
+            if (boardContainer) {
+                boardContainer.innerHTML = ''; // Limpiar el contenido del contenedor del tablero
+            }
+
+            // Mostrar un mensaje para indicar que se ha creado un nuevo tablero
+            alert(`Nuevo tablero creado: ${boardName}`);
+            
+
+            // Guardar el nuevo tablero en la base de datos
+            try {
+                const response = await fetch('https://tu-api-url.com/boards', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: boardName }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al guardar el tablero');
+                }
+
+                const result = await response.json();
+                console.log('Tablero guardado con éxito:', result);
+
+                // Actualizar la interfaz con el nuevo tablero
+                const boardContainer = document.getElementById('lanes-container');
+                const newBoardElement = document.createElement('div');
+                newBoardElement.classList.add('board');
+                newBoardElement.textContent = boardName;
+                boardContainer.appendChild(newBoardElement);
+
+            } catch (error) {
+                console.error('Error al guardar el tablero:', error);
+            }
         }
-        
-        // Mostrar un mensaje para indicar que se ha creado una nueva página
-        alert('Nueva página creada');
     }
 
     // Función para eliminar un tablero
@@ -116,27 +146,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // No se muestra ninguna alerta posterior
         }
     }
-
-    // Función para guardar el tablero
-    function saveBoard() {
-        // Mostrar un mensaje de error ya que no hay una base conectada
-        alert('Error: No hay base de datos conectada para guardar el tablero.');
-    }
-
+    
     // Asignar las funciones a los botones
     const addBoardBtn = document.getElementById('add-board-btn');
     const deleteBoardBtn = document.getElementById('delete-board-btn');
-    const saveBoardBtn = document.getElementById('save-board-btn');
 
     if (addBoardBtn) {
-        addBoardBtn.addEventListener('click', addBoard);
+        addBoardBtn.addEventListener('click', addNewBoard);
     }
     
     if (deleteBoardBtn) {
         deleteBoardBtn.addEventListener('click', deleteBoard);
-    }
-    
-    if (saveBoardBtn) {
-        saveBoardBtn.addEventListener('click', saveBoard);
     }
 });

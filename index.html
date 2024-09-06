@@ -19,11 +19,12 @@
       </button>
       <div class="dropdown-content">
         <nav>
-          <h2>Menú</h2> <!-- Título del menú -->          
+          <h2>Menú</h2>  
           <ul class="menu-vertical">
-            <li><button id="add-board-btn"> nueva página </button></li>
-            <li><button id="delete-board-btn">Eliminar tablero</button></li>
-            <li><button id="save-board-btn">Guardar tablero</button></li>
+           <!-- Botón para conectar a la base de datos -->
+            <li><button id="connectDB">Conectar Base</button></li>
+            <li><button id="add-board-btn">Nuevo tablero</button></li>
+            <li><button id="delete-board-btn">Eliminar Tablero</button></li>
             <button id="toggle-speech-btn">Desactivar Voz</button>
           </ul>
         </nav>
@@ -51,10 +52,12 @@
   </footer>
 
   <!-- Botón para activar la lectura del contenido -->
-  <button id="read-content-btn">Leer contenido</button>
+  <button id="read-content-btn">Leer Contenido</button>
   
-
-  <script src="javascript/drag.js"></script>
-  <script src="scripts.js"></script>
+  <!-- Asegúrate de que estos scripts están al final del body -->
+  <script src="javascript.js/drag.js"></script>
+  <script src="javascript.js/script1.js"></script>
+  <script src="javascript.js/scripts.js"></script>
+  <script type="module" src="javascript.js/supabase.js"></script>
 </body>
 </html>
