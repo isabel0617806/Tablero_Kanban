@@ -14,94 +14,164 @@ header {
   height: 60px;
   width: 100%;
   background-color: #39A136;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  padding: 3%; 
-  margin: 0; 
+  padding: 3%;
+  margin: 0;
   box-sizing: border-box;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
-  
 }
+
 .header-sign {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: #fff; /* Color del texto del letrero */
-  font-size: 1.5rem; /* Tamaño de fuente del letrero */
-  font-weight: bold; /* Peso de la fuente del letrero */
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 header img {
   max-width: 100%;
   height: auto;
-  display: block; 
+  display: block;
 }
 
-/* Media queries para ajustar el diseño en dispositivos móviles */
 @media (max-width: 768px) {
   header {
-    padding: 10px; /* Ajusta el padding para pantallas más pequeñas si es necesario */
+    padding: 10px;
   }
 
   header img {
-    width: 100px; /* Ajusta el tamaño de la imagen para pantallas más pequeñas */
+    width: 100px;
   }
 }
 
 @media (max-width: 480px) {
   header {
-    padding: 8px; /* Ajusta el padding para pantallas aún más pequeñas si es necesario */
+    padding: 8px;
   }
 
   header img {
-    width: 80px; /* Ajusta el tamaño de la imagen para pantallas pequeñas */
+    width: 80px;
   }
 }
 
-main {
-  flex: 1; 
+#boardContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Estilos para el contenedor principal */
+.main {
+  padding: 20px; /* Espaciado interno */
+  overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+  flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+  position: relative; /* Permite posicionar elementos absolutamente dentro de él */
+  flex: 1;
+  padding: 20px;
+  overflow-x: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
-  padding: 10px;
-  box-sizing: border-box;
-  overflow: auto; 
-  position: relative; /* Asegura que el botón se posicione en relación con el contenedor main */
-  padding-top: 50px; 
+  align-items: center;
+}
+
+.main h1 {
+  text-align: center;
+  font-size: 26px;
+  color: #34495e;
+  margin-bottom: 20px;
 }
 
 
+/* Estilos para el botón "Agregar Tarjeta" */
+#addCard {
+  background-color: #2980b9; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cursor al pasar sobre el botón */
+  border-radius: 5px; /* Esquinas redondeadas */
+  position: absolute; /* Posiciona el botón de manera absoluta dentro de .main */
+  top: 80px; /* Ajusta la distancia desde el borde superior de .main */
+  left: 10px; /* Espacio desde el borde izquierdo de .main */
+  z-index: 1000; /* Asegura que el botón esté sobre otros elementos */
+  width: auto; /* Ancho automático */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
 
+/* Cambia el color del botón al pasar el ratón sobre él */
+#addCard:hover {
+  background-color: #84898d; /* Color de fondo al pasar el ratón */
+}
+.card {
+  background-color: #f8f9fa; /* Color de fondo por defecto */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  margin: 10px;
+  color: white;
+}
+
+/* Ajuste para el contenedor de tarjetas */
+#boardContent {
+  margin-top: 120px; /* Ajusta el margen superior para separar el contenido de las tarjetas del botón */
+}
+
+#cardsContainer .column {
+  background-color: #f0f8ff; /* Cambia esto al color que prefieras */
+  border-radius: 25px; /* Opcional: Añade bordes redondeados */
+  padding: 20px; /* Opcional: Añade espaciado interno */
+  margin-bottom: 15px; /* Opcional: Añade espaciado inferior */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: Añade una sombra sutil */
+}
+
+#cardsContainer .column:nth-child(3n+1) {
+  background-color: rgb(45, 198, 209); /* Color 1 */
+}
+
+#cardsContainer .column:nth-child(3n+2) {
+  background-color: rgb(204, 149, 67); /* Color 2 */
+}
+
+#cardsContainer .column:nth-child(3n+3) {
+  background-color: rgb(202, 202, 43); /* Color 3 */
+}
+
+
+/* Ajustes para las barras */
 .bar {
-  background-color: white; 
-  height: 10px; 
-  width: 60px; 
+  background-color: white;
+  height: 10px;
+  width: 60px;
   margin: 4px 0;
-  border-radius: 2px; /* Opcional: para esquinas redondeadas en las barras */
+  border-radius: 2px;
 }
 
 
-/* Estilo del menú desplegable */
 .dropdown {
-  position: fixed; /* Fija el menú desplegable en la ventana */
+  position: fixed;
   top: 5px;
   right: 5px;
   display: inline-block;
-  z-index: 1500; /* Asegura que esté sobre otros elementos */
+  z-index: 1500;
 }
 
 .dropdown-button {
-  background-color: #39A136; /* Color de fondo */
+  background-color: #39A136;
   border: none;
-  color: white; /* Color del texto */
+  color: white;
   cursor: pointer;
-  padding: 10px 20px; /* Espaciado interno */
-  border-radius: 5px; /* Esquinas redondeadas */
-  font-size: 16px; /* Tamaño de fuente */
-  font-weight: bold; /* Negrita */
-  transition: background-color 0.3s, transform 0.3s; 
-  width: auto; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  width: auto;
   box-sizing: border-box;
   margin-bottom: 10px;
 }
@@ -109,14 +179,14 @@ main {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%; 
-  right: 0; 
-  background-color: white; 
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
-  z-index: 1500; 
-  width: 300px; 
-  border-radius: 20px; 
-  border: 5px solid #39A136; 
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1500;
+  width: 300px;
+  border-radius: 20px;
+  border: 5px solid #39A136;
   box-sizing: border-box;
   padding: 10px 0;
 }
@@ -125,146 +195,36 @@ main {
   display: block;
 }
 
-/* Estilo para los botones dentro del dropdown */
 .dropdown-content button {
-  background-color: #39A136; 
+  background-color: #39A136;
   border: none;
-  color: white; 
+  color: white;
   cursor: pointer;
   padding: 10px 20px;
-  border-radius: 5px; 
-  font-size: 16px; 
-  font-weight: bold; 
-  margin: 10px 0; 
-  transition: background-color 0.3s, box-shadow 0.3s; 
-  width: calc(100% - 20px); 
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: calc(100% - 20px);
   box-sizing: border-box;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.3); 
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 }
 
 .dropdown-content button:hover {
-  background-color: #2d8f2d; 
-  box-shadow: 0px 6px 12px rgba(0,0,0,0.4); 
+  background-color: #2d8f2d;
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
 }
-
 
 #read-content-btn {
   display: none;
 }
 
-
-/* Ajuste del formulario dentro del dropdown-content */
 .todo-form {
   display: flex;
-  align-items: center; 
-  padding: 10px; 
-  box-sizing: border-box; 
-}
-
-/* ---- BOARD ---- */
-.lanes {
-  display: flex;
-  flex-direction: row; 
-  align-items: flex-start;
-  justify-content: flex-start; 
-  gap: 16px;
-  padding: 24px 0; 
-  overflow: auto; 
-  flex: 1; 
-  position: absolute; 
-  top: 50px; 
-  left: 10px; 
-  display: flex; 
-  gap: 20px; 
-}
-
-#lanes-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Crea una cuadrícula de 5 columnas */
-  gap: 16px; /* Espacio entre los swim-lanes */
-  width: 100%;
-  max-width: 100%; /* Asegura que el contenedor no exceda el ancho del viewport */
+  align-items: center;
+  padding: 10px;
   box-sizing: border-box;
-  margin: 0 auto; /* Centra la cuadrícula */
-}
-
-.swim-lane {
-  position: relative; /* Habilita el posicionamiento absoluto dentro del swim-lane */
-  border: 1px solid #ddd;
-  padding: 20px; /* Ajusta el padding según tus necesidades */
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 225px; /* Ajusta el ancho según tus necesidades */
-  min-height: 120px; /* Ajusta la altura mínima según tus necesidades */
-  flex-shrink: 0;
-}
-
-.heading {
-  font-size: 18px;
-  font-weight: bold;
-  padding: 5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
-.remove-swim-lane-btn {
-  position: absolute; /* Posiciona el botón de forma absoluta dentro del swim-lane */
-  top: 10px; /* Espacio desde el borde superior del swim-lane */
-  right: 10px; /* Espacio desde el borde derecho del swim-lane */
-  background-color: #ddd;
-  color: black;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 10; /* Asegura que el botón esté encima de otros elementos */
-}
-
-#add-swim-lane-btn {
-  position: absolute; 
-  top: 10px; 
-  left: 10px; 
-  z-index: 1000; 
-  padding: 10px 20px; 
-  background-color: #39A136; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-}
-
-#add-swim-lane-btn:hover {
-  background-color: #687068 ; /* Cambia el color de fondo al pasar el ratón */
-}
-
-.swim-lane {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-  border-radius: 10px;
-  width: 225px;
-  min-height: 120px;
-  flex-shrink: 0;
-  transition: background-color 0.3s ease; /* Para una transición suave del color */
-}
-
-.color-1 { background-color: rgb(223, 220, 67); } 
-.color-2 { background-color: rgb(180, 220, 100); } 
-.color-3 { background-color: rgb(233, 135, 70); } 
-.color-4 { background-color: rgb(165, 240, 184); } 
-.color-5 { background-color: rgb(183, 196, 66); } 
-
-
-.task {
-  background: white;
-  color: black;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: move;
 }
 
 footer {
@@ -305,36 +265,325 @@ footer {
 }
 
 nav {
-  text-align: center; /* Asegúrate de que el contenedor también esté centrado */
+  text-align: center;
 }
-/* Estilo de los elementos del menú vertical */
+
 .menu-vertical {
   list-style-type: none;
   padding: 0;
   margin: 0;
-
 }
 
 .menu-vertical li {
-  padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
+  padding: 15px 50px;
+  border-bottom: 5px solid #ddd;
+  margin: 15px 0;
 }
 
 .menu-vertical a {
-  text-decoration: none; /* Opcional: quita el subrayado de los enlaces */
-  color: #000; /* Opcional: establece el color del texto */
-}
-
-.menu-vertical li {
-  margin: 12px 0; /* Espaciado entre los elementos de la lista */
+  text-decoration: none;
+  color: #000;
 }
 
 .menu-vertical li a:hover {
   background-color: rgb(80, 161, 80);
   color: black;
 }
+
 .menu-title {
+  text-align: center;
+  margin: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.modal-content button {
+  width: 100%;
+}
+
+#createBoard {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#createBoard:hover {
+  background-color: #2ecc71;
+}
+
+.columns-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.column {
+  background: #ecf0f1;
+  padding: 10px;
+  margin-right: 20px;
+  width: 300px;
+  border-radius: 4px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Estilo para el contenedor de la cabecera de la columna */
+.column-header {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el contenido */
+  justify-content: space-between; /* Distribuye el espacio entre el título y los botones */
+  padding: 10px; /* Espacio alrededor del contenido */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+/* Estilo para el contenedor de los botones */
+.button-group {
+  display: flex; /* Alinea los botones en línea horizontal */
+  gap: 2px; /* Reduce el espacio entre los botones */
+}
+
+
+/* Cambia el color de fondo al pasar el ratón sobre los botones */
+.button-group button:hover {
+  background-color: #2980b9; /* Fondo más oscuro al pasar el ratón */
+}
+
+/* Estilo específico para el botón de eliminar */
+.delete-column {
+  background-color: #e74c3c; /* Fondo rojo para el botón de eliminar */
+}
+
+.delete-column:hover {
+  background-color: #c0392b; /* Fondo más oscuro al pasar el ratón */
+}
+
+/* Estilo específico para el botón de editar */
+.edit-column {
+  background-color: #4da6e0; /* Fondo azul para el botón de editar */
+}
+
+/* Estilo para el botón de agregar tarea */
+.addTaskButton {
+  background-color: #4da6e0; /* Color de fondo para el botón */
+  color: rgb(5, 5, 5);
+  border: none;
+  padding: 10px 20px; /* Tamaño del botón */
+  font-size: 14px; /* Tamaño de fuente del botón */
+  border-radius: 20px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  text-align: center;
+  margin-top: 10px; /* Espacio superior */
+}
+
+/* Estilo para el contenedor de tareas */
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre las tareas */
+}
+
+/* Estilo para cada tarea */
+.task {
+  background-color: #f9f9f9; /* Color de fondo claro */
+  border: 1px solid #ddd; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave para efectos */
+}
+
+/* Efecto al pasar el ratón sobre la tarea */
+.task:hover {
+  background-color: #e0e0e0; /* Color de fondo más oscuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+}
+
+/* Estilo para el título de la tarea */
+.task h4 {
+  margin: 0; /* Elimina el margen */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+}
+
+/* Estilo para la descripción de la tarea */
+.task p {
+  margin: 10px 0; /* Espacio arriba y abajo */
+  font-size: 14px; /* Tamaño de fuente más pequeño */
+  color: #666; /* Color de texto gris */
+}
+
+/* Estilo para los botones dentro de la tarea */
+.task button {
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color de texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 3px; /* Bordes redondeados */
+  padding: 5px 10px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor a mano */
+  transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+/* Efecto al pasar el ratón sobre los botones */
+.task button:hover {
+  background-color: #0056b3; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+
+button.modify-board,
+button.delete-board {
+  background: #4da6e0;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 80px;
+  text-align: center;
+  display: inline-block;
+}
+
+
+#boardList {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin: 0;
+  list-style: none;
+}
+
+
+#boardList li {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente el contenido del elemento */
+  padding: 15px;
+  border-bottom: 5px solid #ddd;
+  margin: 10px 0;
+  background-color: #f1eeee; /* Fondo claro para cada elemento */
+  border-radius: 8px; /* Bordes redondeados */
+  max-width: 100%; /* Asegura que el ancho no se exceda del contenedor */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  word-wrap: break-word; /* Permite que las palabras largas se rompan y continúen en la siguiente línea */
+}
+
+/* Estilo para el contenedor del título del tablero */
+.board-title-container {
+  margin-bottom: 10px; /* Espacio entre el título y los botones */
   text-align: center; /* Centra el texto del título */
-  margin: 0; /* Elimina el margen por defecto para una mejor alineación */
-  
-  }
+  width: 100%; /* Asegura que el contenedor del título ocupe todo el ancho disponible */
+  word-wrap: break-word; /* Permite que el texto largo se ajuste */
+}
+
+/* Estilo para el título del tablero */
+.board-title {
+  font-weight: bold;
+  font-size: 18px; /* Tamaño de fuente más grande */
+  color: #333; /* Color del texto */
+  word-wrap: break-word; /* Permite que el texto largo se ajuste */
+}
+
+/* Contenedor para los botones */
+.buttons-container {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+  width: 100%; /* Hace que el contenedor de botones ocupe todo el ancho del <li> */
+  max-width: 300px; /* Limita el ancho máximo del contenedor de botones */
+}
+
+/* Estilo de los botones - mantén sus atributos existentes */
+button.modify-board {
+  background: #4da6e0;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px; /* Bordes más redondeados para un estilo ovalado */
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button.modify-board:hover {
+  background: #2980b9;
+}
+
+button.delete-board {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px; /* Bordes más redondeados para un estilo ovalado */
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button.delete-board:hover {
+  background: #c0392b;
+}
+

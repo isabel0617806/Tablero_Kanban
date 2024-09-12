@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="./styles/reset.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <title>Tablero Kanban</title>
 </head>
 <body>
   <header>
     <img src="imagenes/LogoBlanco.png" alt="Logo Sennova" class="footer-imagesennova">
-    <div class="header-sign" id="editable-title" contenteditable="true">Ingrese Nombre del Tablero</div> 
+    <div class="header-sign" id="editable-title" contenteditable="true">Tablero Kamban</div> 
     <nav class="dropdown">
       <button class="dropdown-button">
         <div class="bar"></div>
@@ -19,29 +20,71 @@
       </button>
       <div class="dropdown-content">
         <nav>
-          <h2>Menú</h2>  
-          <ul class="menu-vertical">
-           <!-- Botón para conectar a la base de datos -->
-            <li><button id="connectDB">Conectar Base</button></li>
-            <li><button id="add-board-btn">Nuevo tablero</button></li>
-            <li><button id="delete-board-btn">Eliminar Tablero</button></li>
-            <button id="toggle-speech-btn">Desactivar Voz</button>
-          </ul>
+            <div class="container">
+            <!-- Menú lateral derecho -->
+            <div class="sidebar">
+              <h2>Tableros</h2>
+              <button id="createBoard">Crear Tablero</button>
+              <ul id="boardList"></ul>
+            </div>
+
+             <!-- Área de trabajo principal -->
+      
+
+    <!-- Modal para crear/editar tableros -->
+        <div id="boardModal" class="modal">
+            <div class="modal-content">
+             <span class="close" id="closeBoardModal">&times;</span>
+               <h2 id="boardModalTitle">Crear Tablero</h2>
+            <input type="text" id="boardName" placeholder="Nombre del tablero" />
+            <button id="saveBoard">Guardar</button>
+            
+</div>
+        </div>
+        
         </nav>
       </div>
     </nav>
     <div class="footer-content"></div>
   </header>
-  
-  <main>
-    <div id="lanes-container" class="lanes">
-      <!-- Más swim-lanes pueden estar aquí -->
+   <main>
+   <!-- Modal para crear/editar tareas -->
+   <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeTaskModal">&times;</span>
+      <h2 id="taskModalTitle">Crear Tarea</h2>
+      <input type="hidden" id="taskId" />
+      <input type="text" id="taskTitle" placeholder="Título de la tarea" />
+      <textarea
+        id="taskDescription"
+        placeholder="Descripción de la tarea"
+      ></textarea>
+      <button id="saveTask">Guardar</button>
     </div>
-    <button id="add-swim-lane-btn">Agregar Nueva Tarjeta</button>
-    <form class="todo-form"></form>
+  </div>
+    </div>
   </main> 
-
+  <div class="main">
+    <h1 id="boardTitle">Selecciona un tablero</h1>
+    <div id="boardContent">
+      <!-- Botón para crear nuevas tarjetas -->
+      <button id="addCard">Agregar Tarjeta</button>
+      <div id="cardsContainer" class="columns-container"></div>
+    </div>
+  </div>
+</div>
   <footer>
+       <!-- Modal para crear/editar tarjetas -->
+       <div id="cardModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeCardModal">&times;</span>
+          <h2 id="cardModalTitle">Crear Tarjeta</h2>
+          <input type="text" id="cardName" placeholder="Nombre de la tarjeta" />
+          <button id="saveCard">Guardar</button>
+          <!-- Contenedor para las tarjetas -->
+        </div>
+      </div>
+      
     <img src="imagenes/LogoCEET.png" alt="Logo CEET" class="footer-imageceet"> 
     <div class="footer-content">            
       <p>Centro de Electricidad Electrónica y Telecomunicaciones - SENA - Regional Distrito Capital Cra. 30 # 17B-25 Sur, Bogotá</p>
@@ -50,14 +93,9 @@
     </div>
     <img src="imagenes/Logosennova.svg" alt="Logo Sennova" class="footer-imagesennova"> 
   </footer>
+    
+    <!-- Scripts -->
+    <script type="module" src="./scripts/app.js"></script>
 
-  <!-- Botón para activar la lectura del contenido -->
-  <button id="read-content-btn">Leer Contenido</button>
-  
-  <!-- Asegúrate de que estos scripts están al final del body -->
-  <script src="javascript.js/drag.js"></script>
-  <script src="javascript.js/script1.js"></script>
-  <script src="javascript.js/scripts.js"></script>
-  <script type="module" src="javascript.js/supabase.js"></script>
-</body>
-</html>
+  </body>
+</html> 
